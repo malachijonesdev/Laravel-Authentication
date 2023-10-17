@@ -61,6 +61,18 @@ import { Head } from "@inertiajs/vue3";
                             />
                         </label>
                     </div>
+                    <div class="p-6 text-gray-900">
+                        <h3 class="text-center mb-4">HTML Preview:</h3>
+                        <iframe
+                            srcdoc="<html><head><style>/* Add custom styles here */</style></head><body></body></html>"
+                            class="w-full border border-gray-300"
+                        ></iframe>
+                        <button
+                            class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mt-4"
+                        >
+                            Save
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
