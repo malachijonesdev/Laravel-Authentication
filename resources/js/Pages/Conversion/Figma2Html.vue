@@ -19,7 +19,7 @@ import { Head } from "@inertiajs/vue3";
                     <div class="flex items-center justify-center w-full">
                         <label
                             for="dropzone-file"
-                            class="flex flex-col items-center justify-center w-full h-40 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600"
+                            class="flex flex-col items-center justify-center w-full h-40 border-2 border-gray-300 border-dashed cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600"
                         >
                             <div
                                 class="flex flex-col items-center justify-center pt-5 pb-6"
@@ -67,11 +67,18 @@ import { Head } from "@inertiajs/vue3";
                             srcdoc="<html><head><style>/* Add custom styles here */</style></head><body></body></html>"
                             class="w-full border border-gray-300"
                         ></iframe>
-                        <button
-                            class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mt-4"
-                        >
-                            Save
-                        </button>
+                        <div class="flex justify-center mt-4">
+                            <button
+                                class="bg-red-500 hover:bg-red-700 text-white font-bold py-3 px-16 mr-2 border-none"
+                            >
+                                Save
+                            </button>
+                            <button
+                                class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-3 px-16 border-none"
+                            >
+                                Cancel
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
