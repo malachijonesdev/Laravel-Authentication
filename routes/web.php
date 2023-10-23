@@ -29,22 +29,9 @@ Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/figma2html', function () {
-    return Inertia::render('Conversion/Figma2Html');
-})->middleware(['auth', 'verified'])->name('figma2html');
-
-Route::get('/figma2laravel', function () {
-    return Inertia::render('Conversion/Figma2Laravel');
-})->middleware(['auth', 'verified'])->name('figma2laravel');
-
-Route::get('/html2figma', function () {
-    return Inertia::render('Conversion/Html2Figma');
-})->middleware(['auth', 'verified'])->name('html2figma');
-
-Route::get('/figma2other', function () {
-    return Inertia::render('Conversion/Figma2Other');
-})->middleware(['auth', 'verified'])->name('figma2other');
-
+Route::get('/planselected', function () {
+    return Inertia::render('Subscription/PlanSelected');
+})->middleware(['auth', 'verified'])->name('planselected');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
