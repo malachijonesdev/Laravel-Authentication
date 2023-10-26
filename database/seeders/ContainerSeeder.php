@@ -6,7 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class UserContainerSeeder extends Seeder
+class ContainerSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -48,6 +48,6 @@ class UserContainerSeeder extends Seeder
             ]
         ];
 
-        DB::table('user_containers')->insert($data);
+        DB::table('containers')->insert($data);
     }
 }

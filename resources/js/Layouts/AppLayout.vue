@@ -52,16 +52,16 @@ const logout = () => {
                                 <NavLink :href="route('dashboard')" :active="route().current('dashboard')">
                                     Home
                                 </NavLink>
-                                <NavLink :href="route('container')" :active="route().current('container')">
+                                <NavLink :href="route('container.index')" :active="route().current('container.index')">
                                     Containers
                                 </NavLink>
-                                <NavLink :href="route('blog')" :active="route().current('blog')">
+                                <NavLink :href="route('blog.index')" :active="route().current('blog.index')">
                                     Blog
                                 </NavLink>
-                                <NavLink :href="route('about_us')" :active="route().current('about_us')">
+                                <NavLink :href="route('about_us.index')" :active="route().current('about_us.index')">
                                     About us
                                 </NavLink>
-                                <NavLink :href="route('container/create')" :active="route().current('container/create')">
+                                <NavLink :href="route('container.create')" :active="route().current('container.create')">
                                     Create Container
                                 </NavLink>
                             </div>

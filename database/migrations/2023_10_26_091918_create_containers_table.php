@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('user_containers', function (Blueprint $table) {
+        Schema::create('containers', function (Blueprint $table) {
             $table->id();
             $table->string('container_name');
             $table->string('container_config')->unique();
@@ -36,6 +36,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('user_containers');
+        Schema::dropIfExists('containers');
     }
 };
