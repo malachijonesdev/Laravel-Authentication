@@ -217,6 +217,18 @@ const logout = () => {
                         <ResponsiveNavLink :href="route('dashboard')" :active="route().current('dashboard')">
                             Home
                         </ResponsiveNavLink>
+                        <ResponsiveNavLink :href="route('container.index')" :active="route().current('container.index')">
+                            Containers
+                        </ResponsiveNavLink>
+                        <ResponsiveNavLink :href="route('blog.index')" :active="route().current('blog.index')">
+                            Blog
+                        </ResponsiveNavLink>
+                        <ResponsiveNavLink :href="route('about_us.index')" :active="route().current('about_us.index')">
+                            About us
+                        </ResponsiveNavLink>
+                        <ResponsiveNavLink :href="route('container.create')" :active="route().current('container.create')">
+                            Create
+                        </ResponsiveNavLink>
                     </div>
 
                     <!-- Responsive Settings Options -->
