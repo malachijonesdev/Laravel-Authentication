@@ -1,6 +1,12 @@
 <script setup>
 import { Head, Link } from '@inertiajs/vue3';
 import Topbar from '../Layouts/Topbar.vue';
+
+defineProps({
+    laravelVersion: String,
+    phpVersion: String,
+});
+
 </script>
 
 <template>

@@ -1,13 +1,15 @@
 <script setup>
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
+import {Link } from '@inertiajs/vue3';
 
-// defineProps({
-//     canLogin: Boolean,
-//     canRegister: Boolean,
-//     laravelVersion: String,
-//     phpVersion: String,
-// });
+defineProps({
+    canLogin: Boolean,
+    canRegister: Boolean
+});
+
+const canLogin = true;
+const canRegister = true;
 
 const router = useRouter();
 const items = ref([
@@ -64,24 +66,24 @@ const items = ref([
                     ">
                         <li v-for="item in items">
                             <span v-if="item.to === '/create'">
-                                <router-link :to=item.to class="md:px-2 cursor-pointer bg-blue-500 text-white ring-2 rounded-lg p-2 md:py-2 md:px-2 mt-4">
+                                <Link :href=item.to class="md:px-2 cursor-pointer bg-blue-500 text-white ring-2 rounded-lg p-2 md:py-2 md:px-2 mt-4">
                                     <span>{{ item.label }}</span>
-                                </router-link>
+                                </Link>
                             </span>
-                            <router-link v-else :to=item.to class="p-2 md:py-6 md:px-2">
+                            <Link v-else :href=item.to class="p-2 md:py-6 md:px-2">
                                 <span>{{ item.label }}</span>
-                            </router-link>
+                            </Link>
+                        </li>
+                        <li v-if="canLogin">
+                            <Link v-if="$page.props.auth.user" :href="route('dashboard')" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Dashboard</Link>
+
+                            <template v-else>
+                                <Link :href="route('login')" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log in</Link>
+                                <Link v-if="canRegister" :href="route('register')" class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Register</Link>
+                            </template>
                         </li>
                     </ul>
-                    <div v-if="canLogin" class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
-                        <Link v-if="$page.props.auth.user" :href="route('dashboard')" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Dashboard</Link>
 
-                        <template v-else>
-                            <Link :href="route('login')" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log in</Link>
-
-                            <Link v-if="canRegister" :href="route('register')" class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Register</Link>
-                        </template>
-                    </div>
                 </nav>
             </header>
         </div>
