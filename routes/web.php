@@ -38,9 +38,10 @@ Route::middleware([
         return Inertia::render('Dashboard');
     })->name('dashboard');
     Route::resource('container', ContainerController::class);
-    Route::resource('about_us', AboutUsController::class);
-    Route::resource('blog', BlogController::class);
 });
+
+Route::resource('about_us', AboutUsController::class);
+Route::resource('blog', BlogController::class);
 
 // Google login
 Route::get('auth/google', [GoogleSocialiteController::class, 'redirectToGoogle']);
