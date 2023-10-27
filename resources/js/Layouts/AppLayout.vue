@@ -5,15 +5,16 @@ import ApplicationMark from '@/Components/ApplicationMark.vue';
 import Banner from '@/Components/Banner.vue';
 import Dropdown from '@/Components/Dropdown.vue';
 import DropdownLink from '@/Components/DropdownLink.vue';
+import NavLink from '@/Components/NavLink.vue';
 import ResponsiveNavLink from '@/Components/ResponsiveNavLink.vue';
-import Topbar from './Topbar.vue';
-import ResponsiveTopbar from "./ResponsiveTopbar.vue";
+import TopbarData from './Topbar.js';
 
 defineProps({
     title: String,
 });
 
 const showingNavigationDropdown = ref(false);
+const TopbarItems = ref(TopbarData);
 const switchToTeam = (team) => {
     router.put(route('current-team.update'), {
         team_id: team.id,
@@ -49,7 +50,10 @@ const logout = () => {
 
                             <!-- Navigation Links -->
                             <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                                <Topbar />
+                                <NavLink v-for="item in TopbarItems" :key="item.route" :href="route(item.route)"
+                                    :active="route().current(item.route)">
+                                    {{ item.name }}
+                                </NavLink>
                             </div>
                         </div>
 
@@ -200,7 +204,10 @@ const logout = () => {
                 <div :class="{ 'block': showingNavigationDropdown, 'hidden': !showingNavigationDropdown }"
                     class="sm:hidden">
                     <div class="pt-2 pb-3 space-y-1">
-                        <ResponsiveTopbar />
+                        <ResponsiveNavLink v-for="item in TopbarItems" :key="item.route" :href="route(item.route)"
+                            :active="route().current(item.route)">
+                            {{ item.name }}
+                        </ResponsiveNavLink>
                     </div>
 
                     <!-- Responsive Settings Options -->
