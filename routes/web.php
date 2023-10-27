@@ -5,6 +5,9 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\FacebookSocialiteController;
 use App\Http\Controllers\GoogleSocialiteController;
+use App\Http\Controllers\ContainerController;
+use App\Http\Controllers\AboutUsController;
+use App\Http\Controllers\BlogController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,6 +37,9 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return Inertia::render('Dashboard');
     })->name('dashboard');
+    Route::resource('container', ContainerController::class);
+    Route::resource('about_us', AboutUsController::class);
+    Route::resource('blog', BlogController::class);
 });
 
 // Google login
