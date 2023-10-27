@@ -1,10 +1,11 @@
 import "./bootstrap";
 import "../css/app.css";
 
-import { createApp, h } from "vue";
-import { createInertiaApp } from "@inertiajs/vue3";
-import { resolvePageComponent } from "laravel-vite-plugin/inertia-helpers";
-import { ZiggyVue } from "../../vendor/tightenco/ziggy/dist/vue.m";
+import { createApp, h } from 'vue';
+import { createInertiaApp } from '@inertiajs/vue3';
+import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
+import { ZiggyVue } from '../../vendor/tightenco/ziggy/dist/vue.m';
+import router from "./router";
 
 const appName = import.meta.env.VITE_APP_NAME || "Stagger";
 
@@ -20,7 +21,8 @@ createInertiaApp({
         return createApp({ render: () => h(App, props) })
             .use(plugin)
             .use(ZiggyVue)
-            .mount(el);
+            .use(router)
+    .mount(el);
     },
     progress: {
         color: "#4B5563",

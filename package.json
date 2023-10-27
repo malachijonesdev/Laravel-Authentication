@@ -18,5 +18,12 @@
         "vite": "^4.0.0",
         "vue": "^3.2.31"
     },
+<<<<<<< HEAD
+    "dependencies": {
+        "vue-router": "^4.2.5"
+    }
+}
+=======
     "dependencies": {}
 }
+>>>>>>> ab48e049dd979b269f98cb0dc194f2ea586368c9
