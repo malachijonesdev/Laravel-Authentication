@@ -23,7 +23,7 @@ class ContainerController extends Controller
      */
     public function create()
     {
-        //
+        return Inertia::render('Container/Create', ['server_locations' => ServerLocation::all(), 'plans' => Plan::all()]);
     }
 
     /**
