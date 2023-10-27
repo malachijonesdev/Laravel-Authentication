@@ -2,9 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Container;
-use App\Models\Plan;
-use App\Models\ServerLocation;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
@@ -15,7 +12,7 @@ class ContainerController extends Controller
      */
     public function index()
     {
-        return Inertia::render('Container/Index', ['containers' => Container::all(), 'plans' => Plan::all()]);
+        return Inertia::render('Container/Index');
     }
 
     /**
@@ -23,7 +20,7 @@ class ContainerController extends Controller
      */
     public function create()
     {
-        return Inertia::render('Container/Create', ['server_locations' => ServerLocation::all(), 'plans' => Plan::all()]);
+        return Inertia::render('Container/Create');
     }
 
     /**
@@ -31,7 +28,6 @@ class ContainerController extends Controller
      */
     public function store(Request $request)
     {
-        return Inertia::render('Container/Index', ['container' => Container::where(), 'plans' => Plan::all()]);
     }
 
     /**
@@ -39,7 +35,6 @@ class ContainerController extends Controller
      */
     public function show($id)
     {
-        return Inertia::render('Container/Show', ['container' => Container::find($id), 'server_locations' => ServerLocation::all(), 'plans' => Plan::all()]);
     }
 
     /**
@@ -47,7 +42,6 @@ class ContainerController extends Controller
      */
     public function edit($id)
     {
-        return Inertia::render('Container/Edit', ['container' => Container::find($id), 'server_locations' => ServerLocation::all(), 'plans' => Plan::all()]);
     }
 
     /**
@@ -55,18 +49,6 @@ class ContainerController extends Controller
      */
     public function update(Request $request, Container $container)
     {
-        $container->update(
-            $request->validate([
-                'container_name' => ['required'],
-                'container_config' => ['required'],
-                'container_location' => ['required'],
-                'container_domain' => ['required'],
-                'container_subdomain' => ['required'],
-                'container_status' => ['required'],
-            ])
-        );
-
-        return to_route('container.index');
     }
 
     /**

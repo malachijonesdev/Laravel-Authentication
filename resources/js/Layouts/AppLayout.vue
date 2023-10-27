@@ -62,7 +62,7 @@ const logout = () => {
                                     About us
                                 </NavLink>
                                 <NavLink :href="route('container.create')" :active="route().current('container.create')">
-                                    Create Container
+                                    Create
                                 </NavLink>
                             </div>
                         </div>
