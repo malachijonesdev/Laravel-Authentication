@@ -29,6 +29,8 @@ class User extends Authenticatable implements MustVerifyEmail
         'password',
         'social_id',
         'social_type',
+        'email_verification_skipped_at',
+        'email_verification_code',
     ];
 
     /**
@@ -50,6 +52,7 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'email_verification_skipped_at' => 'datetime',
     ];
 
     /**
@@ -60,4 +63,22 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $appends = [
         'profile_photo_url',
     ];
+
+    public function hasSkippedEmailVerification(): bool
+    {
+        return !is_null($this->email_verification_skipped_at);
+    }
+
+    public function getVerifyUntilAttribute(): string
+    {
+        return $this->email_verification_skipped_at->addDays(7)->format('Y-m-d H:i:s');
+    }
+
+    public function markEmailAsVerified(): bool
+    {
+        return $this->forceFill([
+            'email_verified_at' => $this->freshTimestamp(),
+            'email_verification_skipped_at' => null,
+        ])->save();
+    }
 }

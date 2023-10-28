@@ -8,6 +8,7 @@ use App\Http\Controllers\GoogleSocialiteController;
 use App\Http\Controllers\ContainerController;
 use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\VerifyEmailController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,7 +33,7 @@ Route::get('/', function () {
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
-    'verified',
+    'verified-or-skipped',
 ])->group(function () {
     Route::get('/dashboard', function () {
         return Inertia::render('Dashboard');
@@ -50,3 +51,11 @@ Route::get('callback/google', [GoogleSocialiteController::class, 'handleCallback
 // Facebook login
 Route::get('auth/facebook', [FacebookSocialiteController::class, 'redirectToFB']);
 Route::get('callback/facebook', [FacebookSocialiteController::class, 'handleCallback']);
+
+// Email verification
+Route::post('/email/verify', [VerifyEmailController::class, 'verify'])
+    ->middleware([config('fortify.auth_middleware', 'auth') . ':' . config('fortify.guard')])
+    ->name('verification.verify-email');
+Route::post('/email/verify/skip', [VerifyEmailController::class, 'skip'])
+    ->middleware([config('fortify.auth_middleware', 'auth') . ':' . config('fortify.guard')])
+    ->name('verification.verify-email-skip');

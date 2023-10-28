@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Laravel\Fortify\Contracts\CreatesNewUsers;
 use Laravel\Jetstream\Jetstream;
+use function random_int;
 
 class CreateNewUser implements CreatesNewUsers
 {
@@ -29,6 +30,7 @@ class CreateNewUser implements CreatesNewUsers
         return User::create([
             'name' => $input['name'],
             'email' => $input['email'],
+            'email_verification_code' => random_int(100000, 999999),
             'password' => Hash::make($input['password']),
         ]);
     }
