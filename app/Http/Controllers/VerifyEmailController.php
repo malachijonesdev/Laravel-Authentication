@@ -16,7 +16,7 @@ class VerifyEmailController extends Controller
         }
 
         if ($request->user()->email_verification_code !== (int)$request->get('code')) {
-            return back()->withErrors(['code' => 'Please, inter valid code!']);
+            return back()->withErrors(['status' => 'error']);
         }
 
         if ($request->user()->markEmailAsVerified()) {
