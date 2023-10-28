@@ -27,16 +27,15 @@ const skip = () => {
     <div class="w-full">
         <div
             class="min-w-screen min-h-screen flex items-center justify-center px-5 py-5 bg-gradient-to-br from-sky-50 to-gray-200">
-            <div class="text-gray-500 rounded-3xl shadow-xl w-full overflow-hidden" style="max-width:1000px">
+            <div class="text-gray-500 rounded-3xl shadow w-full overflow-hidden" style="max-width:500px">
                 <div class="md:flex w-full">
-                   
-                    <div id="login" class="md:w-8/12 bg-white pt-4">
+                    <div id="login" class="w-full bg-white pt-4">
                         <div class="relative">
-                            <div class="px-6 text-gray-500 md:w-4/5 md:px-12">
+                            <div class="text-gray-500 md:w-5/5 md:px-12">
                                 <div v-if="status === 'error'" class="mb-4 font-medium text-sm text-red-600">
-                        Please, inter valid code!
-                    </div>
-                                <div class="">
+                                    Please, inter valid code!
+                                </div>
+                                <div class="justify-center">
                                     <form @submit.prevent="submit">
                                         <div>
                                             <div class="flex -mx-3">
@@ -66,7 +65,6 @@ const skip = () => {
                                     </div>
 
                                     <form @submit.prevent="skip">
-
                                         <div class="flex -mx-3">
                                             <div class="w-full px-3 mb-3">
                                                 <PrimaryButton :class="{ 'opacity-25': form.processing }"

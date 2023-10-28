@@ -6,6 +6,7 @@ use Illuminate\Auth\Events\Verified;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Laravel\Fortify\Contracts\VerifyEmailResponse;
+use Inertia\Inertia;
 
 class VerifyEmailController extends Controller
 {
@@ -16,7 +17,7 @@ class VerifyEmailController extends Controller
         }
 
         if ($request->user()->email_verification_code !== (int)$request->get('code')) {
-            return back()->withErrors(['status' => 'error']);
+            return  Inertia::render('Auth/VerifyEmail',['status' => 'error']);
         }
 
         if ($request->user()->markEmailAsVerified()) {
