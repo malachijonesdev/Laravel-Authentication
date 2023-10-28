@@ -294,7 +294,7 @@ const logout = () => {
                     </div>
                 </div>
             </nav>
-            <div class=" w-full z-50" role="alert"
+            <div class="fixed w-full z-50" role="alert"
                 v-if="$page.props.jetstream.hasEmailVerification && $page.props.auth.user.email_verified_at === null">
                 <div class="text-center bg-red-500 text-white font-bold rounded-t px-4 py-2">
                     You account is not verified!
@@ -303,7 +303,6 @@ const logout = () => {
                     your email.
                 </div>
             </div>
-            
 
             <!-- Page Heading -->
             <header v-if="$slots.header" class="bg-white shadow">
@@ -311,6 +310,7 @@ const logout = () => {
                     <slot name="header" />
                 </div>
             </header>
+
             <!-- Page Content -->
             <main>
                 <slot />
