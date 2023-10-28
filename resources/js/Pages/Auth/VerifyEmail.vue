@@ -1,7 +1,5 @@
 <script setup>
-import { computed } from 'vue';
 import { Head, useForm } from '@inertiajs/vue3';
-import PrimaryButton from '@/Components/PrimaryButton.vue';
 import InputError from '@/Components/InputError.vue';
 import InputLabel from '@/Components/InputLabel.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
@@ -31,12 +29,13 @@ const skip = () => {
             class="min-w-screen min-h-screen flex items-center justify-center px-5 py-5 bg-gradient-to-br from-sky-50 to-gray-200">
             <div class="text-gray-500 rounded-3xl shadow-xl w-full overflow-hidden" style="max-width:1000px">
                 <div class="md:flex w-full">
-                    <div v-if="status === 'error'" class="mb-4 font-medium text-sm text-red-600">
-                        Please, inter valid code!
-                    </div>
+                   
                     <div id="login" class="md:w-8/12 bg-white pt-4">
                         <div class="relative">
                             <div class="px-6 text-gray-500 md:w-4/5 md:px-12">
+                                <div v-if="status === 'error'" class="mb-4 font-medium text-sm text-red-600">
+                        Please, inter valid code!
+                    </div>
                                 <div class="">
                                     <form @submit.prevent="submit">
                                         <div>

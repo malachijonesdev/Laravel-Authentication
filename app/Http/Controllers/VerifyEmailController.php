@@ -23,7 +23,7 @@ class VerifyEmailController extends Controller
             event(new Verified($request->user()));
         }
 
-        return redirect()->route('/dashboard');
+        return redirect()->route('dashboard');
     }
 
     public function skip(Request $request)
@@ -35,6 +35,6 @@ class VerifyEmailController extends Controller
         $request->user()->update(['email_verification_skipped_at' => \now()]);
 
 
-        return redirect()->route('/dasboard');
+        return redirect()->route('dashboard');
     }
 }
