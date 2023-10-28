@@ -294,6 +294,15 @@ const logout = () => {
                     </div>
                 </div>
             </nav>
+            <div class="fixed w-full z-50" role="alert"
+                v-if="$page.props.jetstream.hasEmailVerification && $page.props.auth.email_verified_at === null">
+                <div class="text-center bg-red-500 text-white font-bold rounded-t px-4 py-2">
+                    You account is not verified!
+                    <Link class="text-primary underline underline-offset-8" :href="route('verification.verify-email')">
+                    Verify</Link>
+                    your email.
+                </div>
+            </div>
 
             <!-- Page Heading -->
             <header v-if="$slots.header" class="bg-white shadow">
