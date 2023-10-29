@@ -18,7 +18,7 @@ defineProps({
 
         <div class="min-h-screen bg-gray-100">
             <Topbar />
-            <div class="fixed w-full z-50" role="alert"
+            <div class="w-full" role="alert"
                 v-if="$page.props.jetstream.hasEmailVerification && $page.props.auth.user.email_verified_at === null">
                 <div class="text-center bg-red-500 text-white font-bold rounded-t px-4 py-2">
                     You account is not verified!
