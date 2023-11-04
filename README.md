@@ -15,7 +15,7 @@ Laravel Jetstream is a beautifully designed application starter kit for Laravel 
 
 ## Installation Guide
 
-1: Install Xampp 8.2, and Composer on your local machine
+1: Install [Xampp](https://sourceforge.net/projects/xampp/files/XAMPP%20Windows/8.2.4/xampp-windows-x64-8.2.4-0-VS16-installer.exe) and [Composer](https://getcomposer.org/Composer-Setup.exe) on your local machine
 
 2: Install Laravel composer
 ```
