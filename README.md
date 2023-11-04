@@ -22,18 +22,18 @@ composer install
 php artisan migrate
 ```
 
-5: Install npm package
+6: Install npm package
 ```
 npm install
 ```
 
-5: Run front-end
+7: Run front-end
 
 ```
 npm run dev
 ```
 
-7: Run Laravel backend
+8: Run Laravel backend
 
 ```
 php artisan serve
