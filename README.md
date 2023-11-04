@@ -15,25 +15,29 @@ Laravel Jetstream is a beautifully designed application starter kit for Laravel 
 
 ## Installation Guide
 
-1: Install [Xampp](https://sourceforge.net/projects/xampp/files/XAMPP%20Windows/8.2.4/xampp-windows-x64-8.2.4-0-VS16-installer.exe) and [Composer](https://getcomposer.org/Composer-Setup.exe) on your local machine
+1: Install [Xampp](https://sourceforge.net/projects/xampp/files/XAMPP%20Windows/8.2.4/xampp-windows-x64-8.2.4-0-VS16-installer.exe), [SQLyog](https://en.softonic.com/download/sqlyog/windows/post-download) and [Composer](https://getcomposer.org/Composer-Setup.exe) on your local machine
 
-2: Install Laravel composer
+2: Create a database:`sprlogin` using SQLyog after running Xampp
+
+3: Download the source code and change `.env.example` to `.env`
+
+4: Install Laravel composer
 ```
 composer install
 ```
 
-3: Install npm package
+5: Install npm package
 ```
 npm install
 ```
 
-2: Run front-end
+5: Run front-end
 
 ```
 npm run dev
 ```
 
-3: Run Laravel backend
+7: Run Laravel backend
 
 ```
 php artisan serve
