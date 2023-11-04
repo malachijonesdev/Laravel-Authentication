@@ -26,6 +26,11 @@ Laravel Jetstream is a beautifully designed application starter kit for Laravel 
 composer install
 ```
 
+5: Migrate your database
+```
+php artisan migrate
+```
+
 5: Install npm package
 ```
 npm install
